@@ -8,7 +8,7 @@ WORKDIR /app
 COPY target/event-planner-0.0.1-SNAPSHOT.jar /app/event-planner-0.0.1-SNAPSHOT.jar
 
 # Expose the port that the Spring Boot application will run on
-EXPOSE 8081
+EXPOSE 8082
 
 # Command to run the jar file
 ENTRYPOINT ["java", "-jar", "/app/event-planner-0.0.1-SNAPSHOT.jar"]
