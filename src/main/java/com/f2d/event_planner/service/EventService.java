@@ -101,9 +101,6 @@ public class EventService {
                 event.setEventType(request.getEventType());
                 event.setDescription(request.getDescription());
 
-                Set<UUID> groupIdSet = addGroupsToEvent(request.getGroupIdSet(),eventId);
-                event.setGroupIdSet(groupIdSet);
-
                 event.setCreateTime(request.getCreateTime());
                 event.setLastUpdateTime(LocalDate.now());
 

@@ -38,8 +38,6 @@ public class F2DGroup {
     @Column(name = "last_updatetime")
     private LocalDate lastUpdateTime;
 
-    // Getters and Setters
-
     public UUID getGroupId() {
         return groupId;
     }
