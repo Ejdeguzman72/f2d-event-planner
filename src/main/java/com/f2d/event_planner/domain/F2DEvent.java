@@ -3,12 +3,10 @@ package com.f2d.event_planner.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 import javax.annotation.Nonnull;
-import javax.annotation.processing.Generated;
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -25,6 +23,10 @@ public class F2DEvent {
     LocalDate eventDate;
     LocalDate createTime;
     LocalDate lastUpdateTime;
+    List<UUID> attendees;
+    List<UUID> confirmedAttendees;
+    List<UUID> tentativeAttendees;
+    List<UUID> declinedAttendees;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // Auto generation strategy for UUID
@@ -93,5 +95,41 @@ public class F2DEvent {
 
     public void setLastUpdateTime(LocalDate lastUpdateTime) {
         this.lastUpdateTime = lastUpdateTime;
+    }
+
+    @Column(name = "attendees")
+    public List<UUID> getAttendees() {
+        return attendees;
+    }
+
+    public void setAttendees(List<UUID> attendees) {
+        this.attendees = attendees;
+    }
+
+    @Column(name = "confirmed_attendees")
+    public List<UUID> getConfirmedAttendees() {
+        return confirmedAttendees;
+    }
+
+    public void setConfirmedAttendees(List<UUID> confirmedAttendees) {
+        this.confirmedAttendees = confirmedAttendees;
+    }
+
+    @Column(name = "tentative_attendees")
+    public List<UUID> getTentativeAttendees() {
+        return tentativeAttendees;
+    }
+
+    public void setTentativeAttendees(List<UUID> tentativeAttendees) {
+        this.tentativeAttendees = tentativeAttendees;
+    }
+
+    @Column(name = "declined_attendees")
+    public List<UUID> getDeclinedAttendees() {
+        return declinedAttendees;
+    }
+
+    public void setDeclinedAttendees(List<UUID> declinedAttendees) {
+        this.declinedAttendees = declinedAttendees;
     }
 }

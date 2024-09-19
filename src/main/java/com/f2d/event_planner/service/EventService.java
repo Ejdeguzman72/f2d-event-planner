@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 @Service
@@ -148,5 +150,19 @@ public class EventService {
 
         response.setEvent(event);
         return response;
+    }
+
+    public static boolean is24HoursPast(LocalDateTime eventDateTime) {
+        LocalDateTime now = LocalDateTime.now();
+        long hoursBetween = ChronoUnit.HOURS.between(eventDateTime, now);
+        return hoursBetween >= 24;
+    }
+
+    public void deleteEventInformation(List<F2DEvent> list) {
+        for (F2DEvent event : list) {
+            if (is24HoursPast(LocalDateTime.from(event.getEventDate()))) {
+                deleteEventInfo(event.getEventId());
+            }
+        }
     }
 }
