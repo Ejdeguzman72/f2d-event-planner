@@ -27,6 +27,7 @@ public class F2DEvent {
     List<UUID> confirmedAttendees;
     List<UUID> tentativeAttendees;
     List<UUID> declinedAttendees;
+    F2DGroup f2dGroup;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // Auto generation strategy for UUID
@@ -131,5 +132,15 @@ public class F2DEvent {
 
     public void setDeclinedAttendees(List<UUID> declinedAttendees) {
         this.declinedAttendees = declinedAttendees;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "group_id")
+    public F2DGroup getF2dGroup() {
+        return f2dGroup;
+    }
+
+    public void setF2dGroup(F2DGroup f2dGroup) {
+        this.f2dGroup = f2dGroup;
     }
 }
