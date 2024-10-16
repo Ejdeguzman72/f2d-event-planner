@@ -3,6 +3,7 @@ package com.f2d.event_planner.domain;
 public class UriConstants {
 
     public static final String LOCALHOST_URL = "http://localhost:8081";
+    public static final String F2D_HOST = "http://192.168.1.54:8081";
     public static final String RETRIEVE_ALL_EVENTS_URI = "/events/all";
     public static final String RETRIEVE_EVENT_BY_ID_URI = "/events/search/id/{eventId}";
     public static final String CREATE_EVENT_URI = "/events/create";
