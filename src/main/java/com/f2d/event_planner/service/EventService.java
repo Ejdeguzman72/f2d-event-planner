@@ -80,10 +80,23 @@ public class EventService {
 
     public EventAddUpdateResponse createEvent(EventAddUpdateRequest request) {
         EventAddUpdateResponse response = new EventAddUpdateResponse();
-        request.setCreateTime(LocalDate.now());
-        request.setLastUpdateTime(LocalDate.now());
-        F2DEvent event = eventRepository.save(request);
-
+        F2DEvent event = new F2DEvent();
+        event.setEventName(request.getEventName());
+        event.setEventType(request.getEventType());
+        event.setDescription(request.getDescription());
+        event.setEventDate(request.getEventDate());
+        event.setCreateTime(LocalDate.now());
+        event.setLastUpdateTime(LocalDate.now());
+        event.setAttendees(request.getAttendees());
+        event.setConfirmedAttendees(request.getConfirmedAttendees());
+        event.setTentativeAttendees(request.getTentativeAttendees());
+        event.setDeclinedAttendees(request.getDeclinedAttendees());
+        if (request.getGroupId() != null) {
+            ResponseEntity<F2DGroupSearchResponse> f2dGroupSearchResponse = f2DGroupServiceFeignClient.retrieveGroupById(request.getGroupId());
+            F2DGroup f2dGroup = f2dGroupSearchResponse.getBody().getF2dGroup();
+            event.setF2dGroup(f2dGroup);
+        }
+        event = eventRepository.save(event);
         try {
             if (Objects.nonNull(event.getEventId())) {
                 response.setMessage(AppConstants.EVENT_ADD_UPDATE_SUCCESS_MSG);
