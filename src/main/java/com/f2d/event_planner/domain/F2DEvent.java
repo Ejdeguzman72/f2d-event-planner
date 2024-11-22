@@ -134,7 +134,7 @@ public class F2DEvent {
         this.declinedAttendees = declinedAttendees;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "group_id")
     public F2DGroup getF2dGroup() {
         return f2dGroup;

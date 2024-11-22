@@ -10,4 +10,5 @@ public class UriConstants {
     public static final String UPDATE_EVENT_URI = "/events/update/{eventId}";
     public static final String DELETE_EVENT_URI = "/events/delete/{eventId}";
     public static final String F2D_GROUP_SERVICE_RETRIEVE_BY_ID_RELATIVE_PATH = "/groups/search/id/{groupId}";
+    public static final String RETRIEVE_EVENTS_BY_GROUP_URI = "/events/all/search/group/{groupId}";
 }

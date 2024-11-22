@@ -2,6 +2,7 @@ package com.f2d.event_planner.controller;
 
 import com.f2d.event_planner.domain.*;
 import com.f2d.event_planner.service.EventService;
+import jdk.jfr.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +19,12 @@ public class EventController {
     @CrossOrigin(origins = "*")
     public EventListResponse retrieveAllEventInformation() {
         return eventService.retrieveAllEventInfo();
+    }
+
+    @GetMapping(value = UriConstants.RETRIEVE_EVENTS_BY_GROUP_URI)
+    @CrossOrigin(origins = "*")
+    public EventListResponse retrieveEventInformationByGroup(UUID groupId) {
+        return eventService.retrieveAllEventsByGroup(groupId);
     }
 
     @GetMapping(value = UriConstants.RETRIEVE_EVENT_BY_ID_URI)

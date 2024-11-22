@@ -14,5 +14,5 @@ import java.util.UUID;
 public interface F2DGroupServiceFeignClient {
 
     @GetMapping(UriConstants.F2D_GROUP_SERVICE_RETRIEVE_BY_ID_RELATIVE_PATH)
-    public ResponseEntity<F2DGroupSearchResponse> retrieveGroupById(@PathVariable(AppConstants.PATHVARIABLE_GROUP_ID) UUID groupId);
+    ResponseEntity<F2DGroupSearchResponse> retrieveGroupById(@PathVariable(AppConstants.PATHVARIABLE_GROUP_ID) UUID groupId);
 }

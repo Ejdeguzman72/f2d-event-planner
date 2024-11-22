@@ -43,6 +43,23 @@ public class EventService {
         return response;
     }
 
+    public EventListResponse retrieveAllEventsByGroup(UUID groupId) {
+        EventListResponse response = new EventListResponse();
+        List<F2DEvent> list = eventRepository.findByF2dGroup_GroupId(groupId);
+        if (!list.isEmpty()) {
+            LOGGER.info("Retrieving list of events...");
+            response.setList(list);
+            response.setSuccess(true);
+            response.setMessage(AppConstants.EVENT_RETRIEVE_LIST_SUCCESS_MSG);
+
+        } else {
+            LOGGER.info("Error retrieving list of events...");
+            response.setSuccess(false);
+            response.setMessage(AppConstants.EVENT_RETRIEVE_LIST_FAILURE_MSG);
+        }
+
+        return response;
+    }
     public EventSearchResponse retrieveEventById(UUID eventId) {
         EventSearchResponse response = new EventSearchResponse();
         F2DEvent event = eventRepository.findById(eventId).orElseGet(F2DEvent::new);
@@ -93,7 +110,7 @@ public class EventService {
         event.setDeclinedAttendees(request.getDeclinedAttendees());
         if (request.getGroupId() != null) {
             ResponseEntity<F2DGroupSearchResponse> f2dGroupSearchResponse = f2DGroupServiceFeignClient.retrieveGroupById(request.getGroupId());
-            F2DGroup f2dGroup = f2dGroupSearchResponse.getBody().getF2dGroup();
+            F2DGroup f2dGroup = Objects.requireNonNull(f2dGroupSearchResponse.getBody()).getF2dGroup();
             event.setF2dGroup(f2dGroup);
         }
         event = eventRepository.save(event);
