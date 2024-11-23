@@ -51,7 +51,6 @@ public class EventService {
             response.setList(list);
             response.setSuccess(true);
             response.setMessage(AppConstants.EVENT_RETRIEVE_LIST_SUCCESS_MSG);
-
         } else {
             LOGGER.info("Error retrieving list of events...");
             response.setSuccess(false);
