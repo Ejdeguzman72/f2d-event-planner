@@ -109,7 +109,7 @@ public class EventService {
         event.setDeclinedAttendees(request.getDeclinedAttendees());
         if (request.getGroupId() != null) {
             ResponseEntity<F2DGroupSearchResponse> f2dGroupSearchResponse = f2DGroupServiceFeignClient.retrieveGroupById(request.getGroupId());
-            F2DGroup f2dGroup = Objects.requireNonNull(f2dGroupSearchResponse.getBody()).getF2dGroup();
+            F2DGroup f2dGroup = f2dGroupSearchResponse.getBody().getF2dGroup();
             event.setF2dGroup(f2dGroup);
         }
         event = eventRepository.save(event);

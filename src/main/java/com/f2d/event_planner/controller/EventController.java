@@ -23,7 +23,7 @@ public class EventController {
 
     @GetMapping(value = UriConstants.RETRIEVE_EVENTS_BY_GROUP_URI)
     @CrossOrigin(origins = "*")
-    public EventListResponse retrieveEventInformationByGroup(UUID groupId) {
+    public EventListResponse retrieveEventInformationByGroup(@PathVariable UUID groupId) {
         return eventService.retrieveAllEventsByGroup(groupId);
     }
 
