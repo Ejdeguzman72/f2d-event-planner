@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.UUID;
 
-@FeignClient(name = AppConstants.F2D_GROUP_SERVICE, url = UriConstants.F2D_HOST)
+@FeignClient(name = AppConstants.F2D_GROUP_SERVICE, url = UriConstants.LOCALHOST_URL)
 public interface F2DGroupServiceFeignClient {
 
     @GetMapping(UriConstants.F2D_GROUP_SERVICE_RETRIEVE_BY_ID_RELATIVE_PATH)
