@@ -23,10 +23,10 @@ public class F2DEvent {
     LocalDate eventDate;
     LocalDate createTime;
     LocalDate lastUpdateTime;
-    List<UUID> attendees;
-    List<UUID> confirmedAttendees;
-    List<UUID> tentativeAttendees;
-    List<UUID> declinedAttendees;
+    List<Long> attendees;
+    List<Long> confirmedAttendees;
+    List<Long> tentativeAttendees;
+    List<Long> declinedAttendees;
     F2DGroup f2dGroup;
 
     @Id
@@ -99,38 +99,38 @@ public class F2DEvent {
     }
 
     @Column(name = "attendees")
-    public List<UUID> getAttendees() {
+    public List<Long> getAttendees() {
         return attendees;
     }
 
-    public void setAttendees(List<UUID> attendees) {
+    public void setAttendees(List<Long> attendees) {
         this.attendees = attendees;
     }
 
     @Column(name = "confirmed_attendees")
-    public List<UUID> getConfirmedAttendees() {
+    public List<Long> getConfirmedAttendees() {
         return confirmedAttendees;
     }
 
-    public void setConfirmedAttendees(List<UUID> confirmedAttendees) {
+    public void setConfirmedAttendees(List<Long> confirmedAttendees) {
         this.confirmedAttendees = confirmedAttendees;
     }
 
     @Column(name = "tentative_attendees")
-    public List<UUID> getTentativeAttendees() {
+    public List<Long> getTentativeAttendees() {
         return tentativeAttendees;
     }
 
-    public void setTentativeAttendees(List<UUID> tentativeAttendees) {
+    public void setTentativeAttendees(List<Long> tentativeAttendees) {
         this.tentativeAttendees = tentativeAttendees;
     }
 
     @Column(name = "declined_attendees")
-    public List<UUID> getDeclinedAttendees() {
+    public List<Long> getDeclinedAttendees() {
         return declinedAttendees;
     }
 
-    public void setDeclinedAttendees(List<UUID> declinedAttendees) {
+    public void setDeclinedAttendees(List<Long> declinedAttendees) {
         this.declinedAttendees = declinedAttendees;
     }
 

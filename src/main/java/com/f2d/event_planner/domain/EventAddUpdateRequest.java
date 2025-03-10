@@ -19,10 +19,10 @@ public class EventAddUpdateRequest {
     LocalDate eventDate;
     LocalDate createTime;
     LocalDate lastUpdateTime;
-    List<UUID> attendees;
-    List<UUID> confirmedAttendees;
-    List<UUID> tentativeAttendees;
-    List<UUID> declinedAttendees;
+    List<Long> attendees;
+    List<Long> confirmedAttendees;
+    List<Long> tentativeAttendees;
+    List<Long> declinedAttendees;
     UUID groupId;
 
     public UUID getEventId() {
@@ -81,35 +81,35 @@ public class EventAddUpdateRequest {
         this.lastUpdateTime = lastUpdateTime;
     }
 
-    public List<UUID> getAttendees() {
+    public List<Long> getAttendees() {
         return attendees;
     }
 
-    public void setAttendees(List<UUID> attendees) {
+    public void setAttendees(List<Long> attendees) {
         this.attendees = attendees;
     }
 
-    public List<UUID> getConfirmedAttendees() {
+    public List<Long> getConfirmedAttendees() {
         return confirmedAttendees;
     }
 
-    public void setConfirmedAttendees(List<UUID> confirmedAttendees) {
+    public void setConfirmedAttendees(List<Long> confirmedAttendees) {
         this.confirmedAttendees = confirmedAttendees;
     }
 
-    public List<UUID> getTentativeAttendees() {
+    public List<Long> getTentativeAttendees() {
         return tentativeAttendees;
     }
 
-    public void setTentativeAttendees(List<UUID> tentativeAttendees) {
+    public void setTentativeAttendees(List<Long> tentativeAttendees) {
         this.tentativeAttendees = tentativeAttendees;
     }
 
-    public List<UUID> getDeclinedAttendees() {
+    public List<Long> getDeclinedAttendees() {
         return declinedAttendees;
     }
 
-    public void setDeclinedAttendees(List<UUID> declinedAttendees) {
+    public void setDeclinedAttendees(List<Long> declinedAttendees) {
         this.declinedAttendees = declinedAttendees;
     }
 
