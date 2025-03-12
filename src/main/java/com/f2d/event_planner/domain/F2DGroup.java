@@ -1,5 +1,6 @@
 package com.f2d.event_planner.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
@@ -27,6 +28,7 @@ public class F2DGroup {
     @Column(name = "group_type")
     private String groupType;
 
+    @JsonIgnore
     @ElementCollection
     @CollectionTable(name = "group_user_ids", joinColumns = @JoinColumn(name = "group_id"))
     @Column(name = "user_id")

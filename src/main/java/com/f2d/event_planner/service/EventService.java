@@ -118,7 +118,7 @@ public class EventService {
                 response.setMessage(AppConstants.EVENT_ADD_UPDATE_SUCCESS_MSG);
                 response.setSuccess(true);
 
-                LOGGER.info("Addinng event: " + event.getEventName());
+                LOGGER.info("Adding event: " + event.getEventName());
             } else {
                 LOGGER.error("Error adding event: " + event.getEventName());
                 response.setMessage(AppConstants.EVENT_ADD_UPDATE_FAILURE_MSG);
@@ -144,7 +144,10 @@ public class EventService {
                 event.setEventDate(request.getEventDate());
                 event.setEventType(request.getEventType());
                 event.setDescription(request.getDescription());
-
+                event.setAttendees(request.getAttendees());
+                event.setConfirmedAttendees(request.getConfirmedAttendees());
+                event.setDeclinedAttendees(request.getDeclinedAttendees());
+                event.setTentativeAttendees(request.getTentativeAttendees());
                 event.setCreateTime(request.getCreateTime());
                 event.setLastUpdateTime(LocalDate.now());
 
